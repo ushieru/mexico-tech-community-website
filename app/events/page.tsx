@@ -1,32 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import { Calendar, MapPin, Users, Filter } from "lucide-react"
-import { eventsData } from "@/data/events"
-import { EventsCalendar } from "@/components/events-calendar"
+import { useState, useMemo } from "react";
+import { Calendar, MapPin, Users, Filter } from "lucide-react";
+import { eventsData } from "@/data/events";
+import { EventsCalendar } from "@/components/events-calendar";
 
 export default function EventsPage() {
-  const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar")
-  const [selectedCommunity, setSelectedCommunity] = useState("All")
+  const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar");
+  const [selectedCommunity, setSelectedCommunity] = useState("All");
 
   const communities = useMemo(() => {
-    const unique = new Set(eventsData.map((e) => e.community))
-    return ["All", ...Array.from(unique).sort()]
-  }, [])
+    const unique = new Set(eventsData.map((e) => e.community));
+    return ["All", ...Array.from(unique).sort()];
+  }, []);
 
   const upcomingEvents = useMemo(() => {
     return eventsData
       .filter((e) => new Date(e.date) > new Date())
-      .filter((e) => selectedCommunity === "All" || e.community === selectedCommunity)
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-  }, [selectedCommunity])
+      .filter(
+        (e) => selectedCommunity === "All" || e.community === selectedCommunity
+      )
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  }, [selectedCommunity]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10">
       <section className="container mx-auto px-4 py-16">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Events Calendar</h1>
-          <p className="text-lg text-foreground/70">Join us at tech events, workshops, and meetups in Monterrey</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Events Calendar
+          </h1>
+          <p className="text-lg text-foreground/70">
+            Join us at tech events, workshops, and meetups in México
+          </p>
         </div>
 
         {/* Controls */}
@@ -79,8 +85,13 @@ export default function EventsPage() {
         {/* Events */}
         {upcomingEvents.length === 0 ? (
           <div className="text-center py-12 bg-card border border-border rounded-lg">
-            <Calendar size={48} className="mx-auto text-muted-foreground mb-4" />
-            <p className="text-foreground/70 mb-4">No upcoming events yet. Check back soon!</p>
+            <Calendar
+              size={48}
+              className="mx-auto text-muted-foreground mb-4"
+            />
+            <p className="text-foreground/70 mb-4">
+              No upcoming events yet. Check back soon!
+            </p>
             <a
               href="https://github.com"
               target="_blank"
@@ -105,7 +116,8 @@ export default function EventsPage() {
           <div className="mt-16 bg-card border border-primary/20 rounded-lg p-8 text-center">
             <h2 className="text-2xl font-bold mb-4">Have an Event to Share?</h2>
             <p className="text-foreground/70 mb-6">
-              Add your community event by creating a PR in the events data file on GitHub.
+              Add your community event by creating a PR in the events data file
+              on GitHub.
             </p>
             <a
               href="https://github.com"
@@ -119,20 +131,27 @@ export default function EventsPage() {
         )}
       </section>
     </main>
-  )
+  );
 }
 
 function EventCardList({ event }: { event: (typeof eventsData)[0] }) {
-  const eventDate = new Date(event.date)
-  const monthDay = eventDate.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+  const eventDate = new Date(event.date);
+  const monthDay = eventDate.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-lg transition-all">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="flex items-center justify-center bg-primary/20 rounded-lg p-4 md:w-24 md:h-24 flex-shrink-0">
           <div className="text-center">
-            <div className="text-2xl font-bold text-primary">{eventDate.getDate()}</div>
-            <div className="text-xs text-primary/70">{eventDate.toLocaleDateString("en-US", { month: "short" })}</div>
+            <div className="text-2xl font-bold text-primary">
+              {eventDate.getDate()}
+            </div>
+            <div className="text-xs text-primary/70">
+              {eventDate.toLocaleDateString("en-US", { month: "short" })}
+            </div>
           </div>
         </div>
 
@@ -174,5 +193,5 @@ function EventCardList({ event }: { event: (typeof eventsData)[0] }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

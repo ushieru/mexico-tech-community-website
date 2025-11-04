@@ -1,334 +1,163 @@
 export interface Community {
-  id: string
-  name: string
-  nameEs: string
-  description: string
-  descriptionEs: string
-  focus: string[]
-  focusEs: string[]
-  members: number
-  contacts: Contact[]
-  image?: string
-  category?: string
-  meetups?: number
+  id: string;
+  name: string;
+  nameEs: string;
+  description: string;
+  descriptionEs: string;
+  focus: string[];
+  focusEs: string[];
+  members: number;
+  contacts: Contact[];
+  image?: string;
+  category?: string;
+  meetups?: number;
   links?: {
-    twitter?: string
-    linkedin?: string
-    github?: string
-    website?: string
-  }
-  state: string // Added state for location filtering
-  stateEs: string
-  city: string
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
+    website?: string;
+  };
+  state: string;
+  stateEs: string;
+  city: string;
 }
 
 export interface Contact {
-  name: string
-  role: string
-  roleEs: string
-  bio?: string
-  bioEs?: string
+  name: string;
+  role: string;
+  roleEs: string;
+  bio?: string;
+  bioEs?: string;
   socials: {
-    twitter?: string
-    linkedin?: string
-    github?: string
-    website?: string
-    email?: string
-  }
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
+    website?: string;
+    email?: string;
+  };
 }
 
 export const communitiesData: Community[] = [
   {
-    id: "arena",
-    name: "Arena Tech Community",
-    nameEs: "Comunidad Tech Arena",
-    description: "A vibrant community focused on web development, design, and digital innovation.",
-    descriptionEs: "Una comunidad vibrante enfocada en desarrollo web, diseño e innovación digital.",
-    focus: ["Web Dev", "Design", "Digital Innovation"],
-    focusEs: ["Desarrollo Web", "Diseño", "Innovación Digital"],
-    members: 250,
-    category: "Frontend",
-    meetups: 8,
-    image: "/react-community.jpg",
-    state: "Nuevo León",
-    stateEs: "Nuevo León",
-    city: "Monterrey",
-    contacts: [
-      {
-        name: "Juan García",
-        role: "Community Lead",
-        roleEs: "Líder de la Comunidad",
-        bio: "Full-stack developer passionate about web technologies and community building.",
-        bioEs: "Desarrollador full-stack apasionado por las tecnologías web y la construcción de comunidades.",
-        socials: {
-          twitter: "https://twitter.com",
-          linkedin: "https://linkedin.com",
-          github: "https://github.com",
-          website: "https://arena.tech",
-          email: "juan@arena.tech",
-        },
-      },
-      {
-        name: "María López",
-        role: "Event Coordinator",
-        roleEs: "Coordinadora de Eventos",
-        bio: "Organizer passionate about bringing tech enthusiasts together.",
-        bioEs: "Organizadora apasionada por reunir a entusiastas de la tecnología.",
-        socials: {
-          twitter: "https://twitter.com",
-          linkedin: "https://linkedin.com",
-          email: "maria@arena.tech",
-        },
-      },
-    ],
-    links: {
-      twitter: "https://twitter.com/arena_tech",
-      linkedin: "https://linkedin.com/company/arena-tech",
-      github: "https://github.com/arena-tech",
-      website: "https://arena.tech",
-    },
-  },
-  {
-    id: "devops-mty",
-    name: "DevOps Monterrey",
-    nameEs: "DevOps Monterrey",
-    description: "Community dedicated to DevOps practices, cloud technologies, and infrastructure automation.",
-    descriptionEs: "Comunidad dedicada a prácticas DevOps, tecnologías en la nube y automatización de infraestructura.",
-    focus: ["DevOps", "Cloud", "Kubernetes", "Docker", "Infrastructure"],
-    focusEs: ["DevOps", "Nube", "Kubernetes", "Docker", "Infraestructura"],
-    members: 180,
-    category: "DevOps",
-    meetups: 5,
-    image: "/devops-cloud.jpg",
-    state: "Nuevo León",
-    stateEs: "Nuevo León",
-    city: "Monterrey",
-    contacts: [
-      {
-        name: "Carlos Rodríguez",
-        role: "Community Organizer",
-        roleEs: "Organizador de la Comunidad",
-        bio: "DevOps engineer with 10+ years of experience in cloud infrastructure.",
-        bioEs: "Ingeniero DevOps con 10+ años de experiencia en infraestructura en la nube.",
-        socials: {
-          twitter: "https://twitter.com/carlos_devops",
-          github: "https://github.com/carlos-devops",
-          email: "carlos@devopsmty.com",
-        },
-      },
-    ],
-    links: {
-      twitter: "https://twitter.com/devops_mty",
-      github: "https://github.com/devops-monterrey",
-      website: "https://devopsmty.com",
-    },
-  },
-  {
-    id: "python-mty",
-    name: "Python Monterrey",
-    nameEs: "Python Monterrey",
-    description: "Passionate Python developers sharing knowledge and building amazing projects together.",
+    id: "gdg-mty",
+    name: "GDG Monterrey",
+    nameEs: "GDG Monterrey",
+    description:
+      "Official Google Developer Group in Monterrey. A community of developers, designers, and innovators sharing knowledge on web, mobile, AI, and cloud technologies.",
     descriptionEs:
-      "Desarrolladores apasionados de Python compartiendo conocimiento y construyendo proyectos increíbles juntos.",
-    focus: ["Python", "Data Science", "Backend", "AI/ML"],
-    focusEs: ["Python", "Ciencia de Datos", "Backend", "IA/ML"],
-    members: 220,
-    category: "Backend",
-    meetups: 6,
-    image: "/python-community.jpg",
+      "Grupo oficial de Desarrolladores de Google en Monterrey. Una comunidad de desarrolladores, diseñadores e innovadores que comparten conocimiento sobre tecnologías web, móviles, de IA y la nube.",
+    focus: ["Web", "Android", "AI/ML", "Cloud", "Community"],
+    focusEs: ["Web", "Android", "IA/ML", "Nube", "Comunidad"],
+    members: 1500,
+    category: "General Tech",
+    meetups: 20,
+    image: "/gdg-mty.jpg",
     state: "Nuevo León",
     stateEs: "Nuevo León",
     city: "Monterrey",
     contacts: [
       {
-        name: "Sofia Chen",
-        role: "Founder",
-        roleEs: "Fundadora",
-        bio: "Data scientist and Python enthusiast dedicated to advancing the tech community.",
-        bioEs: "Científica de datos y entusiasta de Python dedicada a avanzar la comunidad tecnológica.",
+        name: "Aileen Villanueva",
+        role: "Women Techmakers Ambassador & Organizer",
+        roleEs: "Embajadora Women Techmakers y Organizadora",
+        bio: "Software developer and community organizer passionate about JavaScript, AI, and empowering local tech ecosystems.",
+        bioEs:
+          "Desarrolladora de software y organizadora de comunidades apasionada por JavaScript, la IA y el fortalecimiento del ecosistema tecnológico local.",
         socials: {
-          linkedin: "https://linkedin.com/in/sofia-chen",
-          github: "https://github.com/sofia-chen",
-          email: "sofia@pythonmty.com",
+          twitter: "https://twitter.com/aileenvl",
+          linkedin: "https://www.linkedin.com/in/aileen-villanueva-31155666/",
+          github: "https://github.com/aileenvl",
+          website: "https://aileenvl.com",
         },
       },
     ],
     links: {
-      linkedin: "https://linkedin.com/company/python-monterrey",
-      github: "https://github.com/python-monterrey",
-      website: "https://pythonmty.com",
+      twitter: "https://twitter.com/googledevgroups",
+      website: "https://gdg.community.dev/",
     },
   },
   {
-    id: "react-mty",
-    name: "React Monterrey",
-    nameEs: "React Monterrey",
-    description: "Community focused on React, modern frontend development, and JavaScript ecosystem.",
-    descriptionEs: "Comunidad enfocada en React, desarrollo frontend moderno y el ecosistema de JavaScript.",
-    focus: ["React", "Frontend", "JavaScript", "Web Development"],
-    focusEs: ["React", "Frontend", "JavaScript", "Desarrollo Web"],
-    members: 342,
-    category: "Frontend",
-    meetups: 8,
-    image: "/react-community.jpg",
-    state: "Nuevo León",
-    stateEs: "Nuevo León",
-    city: "Monterrey",
-    contacts: [
-      {
-        name: "Luis Mejía",
-        role: "Lead Organizer",
-        roleEs: "Organizador Principal",
-        bio: "Senior frontend engineer passionate about React and modern web technologies.",
-        bioEs: "Ingeniero frontend senior apasionado por React y tecnologías web modernas.",
-        socials: {
-          twitter: "https://twitter.com/luis_dev",
-          github: "https://github.com/luis-mejia",
-          linkedin: "https://linkedin.com/in/luis-mejia",
-          email: "luis@reactmty.com",
-        },
-      },
+    id: "supabase-mty",
+    name: "Supabase Monterrey",
+    nameEs: "Supabase Monterrey",
+    description:
+      "A community of developers and makers building with Supabase, Postgres, and modern web tools. We host meetups, workshops, and open demos.",
+    descriptionEs:
+      "Una comunidad de desarrolladores y creadores que construyen con Supabase, Postgres y herramientas modernas de desarrollo web. Organizamos meetups, talleres y demos abiertas.",
+    focus: ["Supabase", "Postgres", "Next.js", "TypeScript", "Open Source"],
+    focusEs: [
+      "Supabase",
+      "Postgres",
+      "Next.js",
+      "TypeScript",
+      "Código Abierto",
     ],
-    links: {
-      twitter: "https://twitter.com/react_mty",
-      github: "https://github.com/react-monterrey",
-      website: "https://reactmty.com",
-    },
-  },
-  {
-    id: "tech-mexico-city",
-    name: "Mexico City Tech Hub",
-    nameEs: "Hub Tech Ciudad de México",
-    description: "Leading tech community in Mexico's capital, connecting innovators and entrepreneurs.",
-    descriptionEs: "Comunidad tech líder en la capital de México, conectando innovadores y emprendedores.",
-    focus: ["Startups", "Innovation", "Tech Entrepreneurship"],
-    focusEs: ["Startups", "Innovación", "Emprendimiento Tech"],
-    members: 1250,
-    category: "Frontend",
-    meetups: 12,
-    image: "/react-community.jpg",
-    state: "Ciudad de México",
-    stateEs: "Ciudad de México",
-    city: "Mexico City",
-    contacts: [
-      {
-        name: "Roberto Martínez",
-        role: "Community Director",
-        roleEs: "Director de la Comunidad",
-        bio: "Entrepreneur and tech community builder based in Mexico City.",
-        bioEs: "Emprendedor y constructor de comunidades tech en Ciudad de México.",
-        socials: {
-          twitter: "https://twitter.com/roberto_tech",
-          linkedin: "https://linkedin.com/in/roberto-martinez",
-          email: "roberto@techmexico.city",
-        },
-      },
-    ],
-    links: {
-      twitter: "https://twitter.com/tech_mexico_city",
-      linkedin: "https://linkedin.com/company/mexico-city-tech",
-      website: "https://techmexico.city",
-    },
-  },
-  {
-    id: "frontend-guadalajara",
-    name: "Frontend Guadalajara",
-    nameEs: "Frontend Guadalajara",
-    description: "Frontend developers community in Guadalajara focused on modern web technologies.",
-    descriptionEs: "Comunidad de desarrolladores frontend en Guadalajara enfocada en tecnologías web modernas.",
-    focus: ["Frontend", "Web Design", "JavaScript", "React"],
-    focusEs: ["Frontend", "Diseño Web", "JavaScript", "React"],
-    members: 180,
-    category: "Frontend",
+    members: 0,
+    category: "Backend / Database",
     meetups: 4,
-    image: "/react-community.jpg",
-    state: "Jalisco",
-    stateEs: "Jalisco",
-    city: "Guadalajara",
+    image: "/supabase.png",
+    state: "Nuevo León",
+    stateEs: "Nuevo León",
+    city: "Monterrey",
     contacts: [
       {
-        name: "Andrea Sánchez",
-        role: "Community Lead",
-        roleEs: "Líder de la Comunidad",
-        bio: "UX/UI designer and frontend specialist.",
-        bioEs: "Especialista en diseño UX/UI y frontend.",
-        socials: {
-          linkedin: "https://linkedin.com/in/andrea-sanchez",
-          github: "https://github.com/andrea-frontend",
-          email: "andrea@frontendgdl.mx",
-        },
-      },
-    ],
-    links: {
-      github: "https://github.com/frontend-guadalajara",
-      website: "https://frontendgdl.mx",
-    },
-  },
-  {
-    id: "backend-puebla",
-    name: "Backend Puebla",
-    nameEs: "Backend Puebla",
-    description: "Backend development community focusing on server-side technologies and databases.",
-    descriptionEs: "Comunidad de desarrollo backend enfocada en tecnologías del lado del servidor y bases de datos.",
-    focus: ["Backend", "Databases", "Node.js", "APIs"],
-    focusEs: ["Backend", "Bases de Datos", "Node.js", "APIs"],
-    members: 95,
-    category: "Backend",
-    meetups: 3,
-    image: "/python-community.jpg",
-    state: "Puebla",
-    stateEs: "Puebla",
-    city: "Puebla",
-    contacts: [
-      {
-        name: "Miguel Rosales",
+        name: "Aileen Villanueva",
         role: "Organizer",
-        roleEs: "Organizador",
-        bio: "Backend engineer passionate about scalable systems.",
-        bioEs: "Ingeniero backend apasionado por sistemas escalables.",
+        roleEs: "Organizadora",
+        bio: "Developer and community builder organizing Supabase meetups in Monterrey and sharing demos and learning resources.",
+        bioEs:
+          "Desarrolladora y organizadora de comunidad que coordina meetups de Supabase en Monterrey y comparte demos y recursos de aprendizaje.",
         socials: {
-          github: "https://github.com/miguel-backend",
-          email: "miguel@backendpuebla.mx",
+          twitter: "https://twitter.com/aileenvl",
+          linkedin: "https://www.linkedin.com/in/aileen-villanueva-31155666/",
+          github: "https://github.com/aileenvl",
+          email: "aileen@supabasemty.dev",
         },
       },
     ],
     links: {
-      github: "https://github.com/backend-puebla",
-      website: "https://backendpuebla.mx",
+      twitter: "https://twitter.com/supabase",
+      website: "https://supabase.com",
     },
   },
   {
-    id: "devops-texas",
-    name: "DevOps Querétaro",
-    nameEs: "DevOps Querétaro",
-    description: "Cloud infrastructure and DevOps community in Querétaro.",
-    descriptionEs: "Comunidad de infraestructura en la nube y DevOps en Querétaro.",
-    focus: ["DevOps", "Cloud", "AWS", "Infrastructure"],
-    focusEs: ["DevOps", "Nube", "AWS", "Infraestructura"],
-    members: 120,
-    category: "DevOps",
-    meetups: 4,
-    image: "/devops-cloud.jpg",
-    state: "Querétaro",
-    stateEs: "Querétaro",
-    city: "Querétaro",
+    id: "cursor-mty",
+    name: "Cursor Monterrey",
+    nameEs: "Cursor Monterrey",
+    description:
+      "A casual meetup for developers exploring Cursor, AI-assisted coding, and the future of building with AI tools.",
+    descriptionEs:
+      "Un meetup casual para desarrolladores que exploran Cursor, la programación asistida por IA y el futuro de construir con herramientas de IA.",
+    focus: ["AI", "Cursor", "Frontend", "Agents"],
+    focusEs: ["IA", "Cursor", "Agentes"],
+    members: 0,
+    category: "AI / Developer Tools",
+    meetups: 1,
+    image: "/cursor.png",
+    state: "Nuevo León",
+    stateEs: "Nuevo León",
+    city: "Monterrey",
     contacts: [
       {
-        name: "Gabriel López",
-        role: "Lead",
-        roleEs: "Líder",
-        bio: "Cloud architect and DevOps specialist.",
-        bioEs: "Arquitecto de nube y especialista en DevOps.",
+        name: "Aileen Villanueva",
+        role: "Host & Organizer",
+        roleEs: "Anfitriona y Organizadora",
+        bio: "Software developer and Cursor Ambassador excited about teaching and exploring AI tools for creative coding.",
+        bioEs:
+          "Desarrolladora de software y Embajadora de Cursor entusiasmada por enseñar y explorar herramientas de IA para la programación creativa.",
         socials: {
-          email: "gabriel@devopsqro.mx",
+          twitter: "https://twitter.com/aileenvl",
+          linkedin: "https://www.linkedin.com/in/aileen-villanueva-31155666/",
+          github: "https://github.com/aileenvl",
         },
       },
     ],
     links: {
-      website: "https://devopsqro.mx",
+      twitter: "https://twitter.com/cursor_ai",
+      website: "https://cursor.com/",
     },
   },
-]
+];
 
 export const MEXICAN_STATES = [
   { id: "all", name: "All States", nameEs: "Todos los Estados" },
@@ -342,4 +171,4 @@ export const MEXICAN_STATES = [
   { id: "GTO", name: "Guanajuato", nameEs: "Guanajuato" },
   { id: "SLP", name: "San Luis Potosí", nameEs: "San Luis Potosí" },
   { id: "TAMPS", name: "Tamaulipas", nameEs: "Tamaulipas" },
-]
+];

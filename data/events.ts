@@ -1,47 +1,40 @@
 export interface Event {
-  id: string
-  title: string
-  description: string
-  date: string
-  time: string
-  location: string
-  community: string
-  attendees: number
-  link?: string
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  community: string;
+  attendees: number;
+  link?: string;
 }
 
 export const eventsData: Event[] = [
   {
-    id: "event-1",
-    title: "Web Development Workshop: React Best Practices",
-    description: "Learn advanced React patterns and best practices from industry experts.",
-    date: "2025-12-15",
-    time: "18:30",
-    location: "Centro de Innovación Monterrey",
-    community: "Arena Tech Community",
-    attendees: 45,
-    link: "https://example.com",
+    id: "devfest-monterrey-2025",
+    title: "DevFest Monterrey 2025",
+    description:
+      "La conferencia tecnológica impulsada por la comunidad más grande del mundo. Explora herramientas de desarrollo, aprende de Google y Google Developer Experts, y conecta con desarrolladores. Temas: AI, Android, Angular, Cloud, Firebase, Flutter, Gemini y más.",
+    date: "2025-11-13",
+    time: "18:00",
+    location:
+      "Facultad de Arquitectura, s/n Pedro de Alba, San Nicolás de los Garza",
+    community: "GDG Monterrey",
+    attendees: 101,
+    link: "https://gdg.community.dev/events/details/google-gdg-monterrey-presents-devfest-monterrey-2025/",
   },
   {
-    id: "event-2",
-    title: "DevOps Meetup: Kubernetes in Production",
-    description: "Deep dive into running Kubernetes clusters in production environments.",
-    date: "2025-12-18",
-    time: "19:00",
-    location: "Tech Hub Downtown",
-    community: "DevOps Monterrey",
-    attendees: 32,
-    link: "https://example.com",
+    id: "cursor-meetup-monterrey",
+    title: "Cursor meetup Monterrey",
+    description:
+      "¡Primer Cursor Community Meetup en Monterrey! Aprende a construir de forma más inteligente con IA. Incluye introducción a Cursor, demostración en vivo, charlas de la comunidad y networking con otros desarrolladores.",
+    date: "2025-11-14",
+    time: "18:00",
+    location:
+      "Apex Systems Helice, Av San Jerónimo 1104, San Jeronimo, Monterrey",
+    community: "Cursor Community",
+    attendees: 50,
+    link: "https://luma.com/m4w80tw3",
   },
-  {
-    id: "event-3",
-    title: "Python Data Science Workshop",
-    description: "Explore data science libraries and machine learning techniques with Python.",
-    date: "2025-12-20",
-    time: "17:00",
-    location: "University Campus",
-    community: "Python Monterrey",
-    attendees: 55,
-    link: "https://example.com",
-  },
-]
+];

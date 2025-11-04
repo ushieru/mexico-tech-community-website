@@ -1,15 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Check, Mail, Building2, DollarSign, MapPin, ExternalLink } from "lucide-react"
-import { sponsorsData } from "@/data/sponsors"
+import { useState } from "react";
+import {
+  Check,
+  Mail,
+  Building2,
+  DollarSign,
+  MapPin,
+  ExternalLink,
+} from "lucide-react";
+import { sponsorsData } from "@/data/sponsors";
 
 export default function SponsorsPage() {
-  const [activeTab, setActiveTab] = useState<"current" | "become">("current")
-  const budgetSponsors = sponsorsData.filter((s) => s.type === "budget")
-  const spaceSponsors = sponsorsData.filter((s) => s.type === "space")
+  const [activeTab, setActiveTab] = useState<"current" | "become">("current");
+  const budgetSponsors = sponsorsData.filter((s) => s.type === "budget");
+  const spaceSponsors = sponsorsData.filter((s) => s.type === "space");
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10">
@@ -18,8 +25,8 @@ export default function SponsorsPage() {
         <div className="mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Sponsors</h1>
           <p className="text-lg text-foreground/70 max-w-2xl">
-            Thanks to our sponsors who support and enable tech communities in Monterrey. Together, we're building a
-            thriving tech ecosystem.
+            Thanks to our sponsors who support and enable tech communities in
+            México. Together, we're building a thriving tech ecosystem.
           </p>
         </div>
 
@@ -88,9 +95,11 @@ export default function SponsorsPage() {
 
             {/* Call to Action */}
             <div className="bg-card border border-primary/20 rounded-lg p-8 text-center mt-8">
-              <h3 className="text-2xl font-bold mb-4">Want to Support the Community?</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Want to Support the Community?
+              </h3>
               <p className="text-foreground/70 mb-6">
-                Join our sponsors and help us grow the tech community in Monterrey.
+                Join our sponsors and help us grow the tech community in México.
               </p>
               <button
                 onClick={() => setActiveTab("become")}
@@ -142,7 +151,9 @@ export default function SponsorsPage() {
 
             {/* How It Works */}
             <div className="bg-card border border-border rounded-lg p-8">
-              <h2 className="text-2xl font-bold mb-8">How to Become a Sponsor</h2>
+              <h2 className="text-2xl font-bold mb-8">
+                How to Become a Sponsor
+              </h2>
               <div className="space-y-6">
                 <Step
                   number={1}
@@ -168,7 +179,8 @@ export default function SponsorsPage() {
 
               <div className="mt-8 pt-8 border-t border-border">
                 <p className="text-foreground/70 mb-6">
-                  All sponsorships are managed through our GitHub repository to ensure transparency and community trust.
+                  All sponsorships are managed through our GitHub repository to
+                  ensure transparency and community trust.
                 </p>
                 <a
                   href="https://github.com"
@@ -187,7 +199,8 @@ export default function SponsorsPage() {
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 rounded-lg p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Questions?</h3>
               <p className="text-foreground/70 mb-6">
-                Have questions about sponsorship opportunities? Contact us for more information.
+                Have questions about sponsorship opportunities? Contact us for
+                more information.
               </p>
               <a
                 href="mailto:sponsors@mtytech.community"
@@ -201,21 +214,22 @@ export default function SponsorsPage() {
         )}
       </section>
     </main>
-  )
+  );
 }
 
 interface Sponsor {
-  id: string
-  name: string
-  description: string
-  type: "budget" | "space"
-  logo?: string
-  website?: string
+  id: string;
+  name: string;
+  description: string;
+  type: "budget" | "space";
+  logo?: string;
+  website?: string;
 }
 
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
-  const icon = sponsor.type === "budget" ? <DollarSign size={24} /> : <MapPin size={24} />
-  const color = sponsor.type === "budget" ? "text-primary" : "text-accent"
+  const icon =
+    sponsor.type === "budget" ? <DollarSign size={24} /> : <MapPin size={24} />;
+  const color = sponsor.type === "budget" ? "text-primary" : "text-accent";
 
   return (
     <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-lg transition-all">
@@ -225,7 +239,9 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
           <h3 className="text-lg font-bold">{sponsor.name}</h3>
           <span
             className={`inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold ${
-              sponsor.type === "budget" ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent"
+              sponsor.type === "budget"
+                ? "bg-primary/20 text-primary"
+                : "bg-accent/20 text-accent"
             }`}
           >
             {sponsor.type === "budget" ? "Budget Sponsor" : "Space Sponsor"}
@@ -237,7 +253,9 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
 
       {sponsor.logo && (
         <div className="mb-4 h-12 flex items-center justify-center bg-muted rounded">
-          <div className="text-xs font-semibold text-foreground/70">{sponsor.logo}</div>
+          <div className="text-xs font-semibold text-foreground/70">
+            {sponsor.logo}
+          </div>
         </div>
       )}
 
@@ -253,7 +271,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
         </a>
       )}
     </div>
-  )
+  );
 }
 
 function SponsorshipTier({
@@ -264,14 +282,14 @@ function SponsorshipTier({
   features,
   cta,
 }: {
-  icon: React.ReactNode
-  title: string
-  description: string
-  benefits?: string[]
-  features?: string[]
-  cta: string
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  benefits?: string[];
+  features?: string[];
+  cta: string;
 }) {
-  const items = benefits || features || []
+  const items = benefits || features || [];
 
   return (
     <div className="bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all">
@@ -297,7 +315,7 @@ function SponsorshipTier({
         {cta}
       </a>
     </div>
-  )
+  );
 }
 
 function Step({
@@ -305,9 +323,9 @@ function Step({
   title,
   description,
 }: {
-  number: number
-  title: string
-  description: string
+  number: number;
+  title: string;
+  description: string;
 }) {
   return (
     <div className="flex gap-6">
@@ -321,5 +339,5 @@ function Step({
         <p className="text-foreground/70">{description}</p>
       </div>
     </div>
-  )
+  );
 }

@@ -32,7 +32,7 @@ export function CommunitiesGrid({ communities }: CommunitiesGridProps) {
             <img
               src={community.image || "/placeholder.svg"}
               alt={community.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-4"
             />
             <div className="absolute top-3 right-3">
               <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">

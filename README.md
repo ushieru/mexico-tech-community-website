@@ -1,219 +1,404 @@
-# MTY Tech Community Platform
+# Plataforma MX Tech Community
 
-An open-source platform connecting and showcasing tech communities in Monterrey, Mexico. Built with Next.js and designed to be community-driven and easy to contribute to.
+Una plataforma de código abierto que conecta y muestra las comunidades tecnológicas de México. Construida con Next.js y diseñada para ser impulsada por la comunidad y fácil de contribuir.
 
-## 🌟 Features
+[English version](./README.en.md)
 
-- **Communities Directory** - Browse and discover local tech communities
-- **Events Calendar** - Interactive calendar view of upcoming tech events
-- **Sponsors Directory** - Showcase organizations supporting the tech community
-- **Open Source** - Community-driven platform where anyone can contribute
+## 🌟 Características
 
-## 📋 Project Structure
+- **Directorio de Comunidades** - Descubre comunidades tecnológicas locales
+- **Calendario de Eventos** - Vista interactiva de eventos tecnológicos próximos
+- **Directorio de Patrocinadores** - Muestra organizaciones que apoyan la comunidad tecnológica
+- **Código Abierto** - Plataforma impulsada por la comunidad donde cualquiera puede contribuir
 
-\`\`\`
-├── app/                    # Next.js app router pages
-│   ├── page.tsx           # Homepage
-│   ├── communities/       # Communities directory
-│   ├── events/            # Events calendar
-│   ├── sponsors/          # Sponsors page
-│   ├── layout.tsx         # Root layout
-│   └── globals.css        # Global styles
-├── components/            # React components
-│   ├── ui/               # shadcn/ui components
-│   ├── header.tsx        # Navigation header
-│   ├── footer.tsx        # Footer
+## 📋 Estructura del Proyecto
+
+```
+├── app/                    # Páginas del router de Next.js
+│   ├── page.tsx           # Página de inicio
+│   ├── communities/       # Directorio de comunidades
+│   ├── events/            # Calendario de eventos
+│   ├── sponsors/          # Página de patrocinadores
+│   ├── layout.tsx         # Layout principal
+│   └── globals.css        # Estilos globales
+├── components/            # Componentes de React
+│   ├── ui/               # Componentes de shadcn/ui
+│   ├── header.tsx        # Encabezado de navegación
+│   ├── footer.tsx        # Pie de página
 │   └── ...
-├── data/                  # Data files
-│   ├── communities.ts    # Communities data
-│   ├── events.ts         # Events data
-│   └── sponsors.ts       # Sponsors data
-└── public/               # Static assets
-\`\`\`
+├── data/                  # Archivos de datos
+│   ├── communities.ts    # Datos de comunidades
+│   ├── events.ts         # Datos de eventos
+│   └── sponsors.ts       # Datos de patrocinadores
+└── public/               # Recursos estáticos
+```
 
-## 🚀 Getting Started
+## 🚀 Comenzar
 
-### Prerequisites
+### Prerrequisitos
 
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18+
+- npm o yarn
 
-### Installation
+### Instalación
 
-\`\`\`bash
-# Clone the repository
-git clone https://github.com/yourusername/mty-tech-community.git
+```bash
+# Clona el repositorio
+git clone https://github.com/yourusername/mexico-tech-community-website.git
 
-# Navigate to the project
-cd mty-tech-community
+# Navega al proyecto
+cd mexico-tech-community-website
 
-# Install dependencies
+# Instala las dependencias
 npm install
 
-# Run development server
+# Ejecuta el servidor de desarrollo
 npm run dev
-\`\`\`
+```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación.
 
-## 🤝 Contributing
+## 🤝 Cómo Contribuir
 
-We welcome contributions! Here's how to add your community, event, or become a sponsor:
+¡Damos la bienvenida a todas las contribuciones! Aquí te explicamos cómo agregar tu comunidad, evento o convertirte en patrocinador.
 
-### Adding a Community
+### Agregar una Comunidad
 
-1. Fork the repository
-2. Edit `data/communities.ts`
-3. Add your community object:
+1. **Haz un Fork del repositorio**
 
-\`\`\`typescript
-{
-  id: "unique-id",
-  name: "Your Community Name",
-  description: "Brief description of your community",
-  focus: ["Topic1", "Topic2", "Topic3"],
-  members: 100,
-  contacts: [
-    {
-      name: "Your Name",
-      role: "Community Lead",
-      socials: {
-        twitter: "https://twitter.com/username",
-        linkedin: "https://linkedin.com/in/username",
-        github: "https://github.com/username",
-        website: "https://yourwebsite.com"
-      }
-    }
-  ]
+   - Haz clic en el botón "Fork" en la esquina superior derecha de GitHub
+
+2. **Clona tu fork**
+
+   ```bash
+   git clone https://github.com/TU-USUARIO/mexico-tech-community-website.git
+   cd mexico-tech-community-website
+   ```
+
+3. **Crea una nueva rama**
+
+   ```bash
+   git checkout -b agregar-comunidad-NOMBRE
+   ```
+
+4. **Edita el archivo `data/communities.ts`**
+
+   Agrega tu comunidad al array `communitiesData`:
+
+   ```typescript
+   {
+     id: "tu-comunidad-mty", // Identificador único (minúsculas con guiones)
+     name: "Tu Comunidad Name", // Nombre en inglés
+     nameEs: "Tu Comunidad Nombre", // Nombre en español
+     description: "Brief description of your community", // Descripción en inglés
+     descriptionEs: "Breve descripción de tu comunidad", // Descripción en español
+     category: "General Tech", // Categoría: "General Tech", "Backend / Database", "AI / Developer Tools", etc.
+     focus: ["JavaScript", "React", "Node.js"], // Tecnologías o temas principales
+     members: 100, // Número aproximado de miembros
+     meetups: 5, // Número de meetups realizados
+     image: "/tu-logo.png", // Ruta a tu logo (colócalo en la carpeta public/)
+     city: "Monterrey", // Ciudad
+     links: {
+       website: "https://tucomunidad.com", // Sitio web (opcional)
+       twitter: "https://twitter.com/tucomunidad", // Twitter (opcional)
+       linkedin: "https://linkedin.com/company/tucomunidad", // LinkedIn (opcional)
+       github: "https://github.com/tucomunidad", // GitHub (opcional)
+       discord: "https://discord.gg/tucomunidad", // Discord (opcional)
+       slack: "https://tucomunidad.slack.com", // Slack (opcional)
+     },
+     contacts: [
+       {
+         name: "Tu Nombre",
+         role: "Community Lead",
+         socials: {
+           twitter: "https://twitter.com/tunombre",
+           linkedin: "https://linkedin.com/in/tunombre",
+           github: "https://github.com/tunombre",
+         },
+       },
+     ],
+   }
+   ```
+
+5. **Agrega el logo de tu comunidad**
+
+   - Coloca tu logo en la carpeta `public/`
+   - Formatos recomendados: PNG con fondo transparente o JPG
+   - Tamaño recomendado: 400x160px o similar
+
+6. **Prueba localmente**
+
+   ```bash
+   npm run dev
+   ```
+
+   Verifica que tu comunidad aparezca correctamente en http://localhost:3000/communities
+
+7. **Haz commit de tus cambios**
+
+   ```bash
+   git add .
+   git commit -m "Agregar comunidad: [Nombre de tu comunidad]"
+   git push origin agregar-comunidad-NOMBRE
+   ```
+
+8. **Crea un Pull Request**
+   - Ve a tu fork en GitHub
+   - Haz clic en "Compare & pull request"
+   - Describe los cambios que realizaste
+   - Envía el Pull Request
+
+### Agregar un Evento
+
+1. **Sigue los pasos 1-3 de "Agregar una Comunidad"** (fork, clone, crear rama)
+
+2. **Edita el archivo `data/events.ts`**
+
+   Agrega tu evento al array `eventsData`:
+
+   ```typescript
+   {
+     id: "nombre-evento-2025", // Identificador único
+     title: "Nombre del Evento", // Título del evento
+     description: "Descripción completa del evento. Incluye qué aprenderán, quién hablará, etc.", // Descripción detallada
+     date: "2025-12-31", // Fecha en formato YYYY-MM-DD
+     time: "18:00", // Hora en formato 24h (HH:MM)
+     location: "Nombre del Lugar, Dirección completa, Ciudad", // Ubicación completa
+     community: "Nombre de la Comunidad", // Comunidad organizadora
+     attendees: 50, // Número esperado de asistentes
+     link: "https://eventlink.com/tu-evento", // Link de registro o más información
+   }
+   ```
+
+3. **Verifica que la fecha sea correcta**
+
+   - Usa formato ISO: YYYY-MM-DD (ejemplo: 2025-11-15)
+   - La hora debe estar en formato 24h: HH:MM (ejemplo: 18:00)
+
+4. **Prueba localmente**
+
+   ```bash
+   npm run dev
+   ```
+
+   Verifica que tu evento aparezca en http://localhost:3000/events
+
+5. **Haz commit y crea el Pull Request**
+   ```bash
+   git add .
+   git commit -m "Agregar evento: [Nombre del evento]"
+   git push origin agregar-evento-NOMBRE
+   ```
+
+### Convertirse en Patrocinador
+
+¿Tu organización apoya a las comunidades tecnológicas de Monterrey? ¡Únete como patrocinador!
+
+1. **Sigue los pasos 1-3 de "Agregar una Comunidad"** (fork, clone, crear rama)
+
+2. **Edita el archivo `data/sponsors.ts`**
+
+   Agrega tu organización al array `sponsorsData`:
+
+   ```typescript
+   {
+     id: "tu-organizacion", // Identificador único
+     name: "Tu Organización", // Nombre de la organización
+     description: "Cómo apoyas a la comunidad tecnológica (ej: espacios, presupuesto, mentorías)", // Descripción de apoyo
+     type: "budget", // Tipo: "budget" (presupuesto) o "space" (espacios)
+     logo: "TU ORG", // Texto corto o siglas para el logo
+     website: "https://tuorganizacion.com", // Sitio web
+   }
+   ```
+
+3. **Tipos de patrocinio:**
+
+   - `"budget"`: Apoyo financiero, donaciones, becas
+   - `"space"`: Espacios físicos, venues, oficinas para eventos
+
+4. **Prueba, commit y Pull Request**
+   ```bash
+   npm run dev # Prueba localmente
+   git add .
+   git commit -m "Agregar patrocinador: [Nombre de la organización]"
+   git push origin agregar-patrocinador-NOMBRE
+   ```
+
+## 📅 Referencia de Formatos de Datos
+
+### Estructura de Comunidades
+
+```typescript
+interface Community {
+  id: string; // Identificador único (ej: "gdg-monterrey")
+  name: string; // Nombre en inglés
+  nameEs: string; // Nombre en español
+  description: string; // Descripción en inglés
+  descriptionEs: string; // Descripción en español
+  category: string; // Categoría de la comunidad
+  focus: string[]; // Array de tecnologías/temas
+  members: number; // Número de miembros
+  meetups: number; // Número de meetups
+  image: string; // Ruta del logo
+  city: string; // Ciudad
+  links?: {
+    // Links opcionales
+    website?: string;
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
+    discord?: string;
+    slack?: string;
+  };
+  contacts: Contact[]; // Array de contactos
 }
-\`\`\`
+```
 
-4. Create a Pull Request with your changes
+### Estructura de Eventos
 
-### Adding an Event
-
-1. Fork the repository
-2. Edit `data/events.ts`
-3. Add your event object:
-
-\`\`\`typescript
-{
-  id: "event-unique-id",
-  title: "Event Title",
-  description: "Event description",
-  date: "YYYY-MM-DD",
-  time: "HH:MM",
-  location: "Event location",
-  community: "Community Name",
-  attendees: 50,
-  link: "https://event-link.com"
+```typescript
+interface Event {
+  id: string; // Identificador único
+  title: string; // Título del evento
+  description: string; // Descripción completa
+  date: string; // Fecha (YYYY-MM-DD)
+  time: string; // Hora (HH:MM, 24h)
+  location: string; // Ubicación completa
+  community: string; // Comunidad organizadora
+  attendees: number; // Número de asistentes
+  link?: string; // Link de registro (opcional)
 }
-\`\`\`
+```
 
-4. Create a Pull Request
+### Estructura de Patrocinadores
 
-### Becoming a Sponsor
-
-1. Fork the repository
-2. Edit `data/sponsors.ts`
-3. Add your organization:
-
-\`\`\`typescript
-{
-  id: "sponsor-unique-id",
-  name: "Your Organization",
-  description: "How you support the community",
-  type: "budget" | "space",
-  logo: "YOUR ORG",
-  website: "https://yourwebsite.com"
+```typescript
+interface Sponsor {
+  id: string; // Identificador único
+  name: string; // Nombre de la organización
+  description: string; // Cómo apoyan
+  type: "budget" | "space"; // Tipo de patrocinio
+  logo?: string; // Texto del logo
+  website?: string; // Sitio web
 }
-\`\`\`
+```
 
-4. Create a Pull Request
+## ✅ Reglas de Validación
 
-## 📅 Data Format Reference
+Al agregar contenido, asegúrate de:
 
-### Communities Data Structure
+### Comunidades
 
-- `id`: Unique identifier (string, lowercase with hyphens)
-- `name`: Community name (string)
-- `description`: Short description (string)
-- `focus`: Array of focus areas/topics
-- `members`: Approximate member count (number)
-- `contacts`: Array of contact people with their information
+- ✓ Todos los campos requeridos están completos
+- ✓ El `id` es único y usa minúsculas con guiones
+- ✓ Incluye descripciones tanto en inglés como en español
+- ✓ Las URLs de contacto son válidas
+- ✓ El logo está en la carpeta `public/`
+- ✓ Los contactos tienen al menos un método de comunicación
 
-### Events Data Structure
+### Eventos
 
-- `id`: Unique identifier (string)
-- `title`: Event title (string)
-- `description`: Event description (string)
-- `date`: Event date (YYYY-MM-DD format)
-- `time`: Event time (HH:MM format, 24-hour)
-- `location`: Event location (string)
-- `community`: Associated community name (string)
-- `attendees`: Expected attendee count (number)
-- `link`: Event registration/info link (optional, string)
+- ✓ La fecha está en formato `YYYY-MM-DD`
+- ✓ La hora está en formato `HH:MM` (24 horas)
+- ✓ La fecha es futura (no eventos pasados)
+- ✓ La ubicación es clara y completa
+- ✓ El link de registro es válido (si se proporciona)
 
-### Sponsors Data Structure
+### Patrocinadores
 
-- `id`: Unique identifier (string)
-- `name`: Organization name (string)
-- `description`: How they support the community (string)
-- `type`: "budget" or "space" (string)
-- `logo`: Organization abbreviation/logo text (string)
-- `website`: Organization website (string)
+- ✓ El tipo es exactamente `"budget"` o `"space"`
+- ✓ La descripción explica claramente cómo apoyan
+- ✓ El sitio web es una URL válida
 
-## 🎨 Design System
+## 🎨 Sistema de Diseño
 
-The platform uses:
-- **Framework**: Next.js 16 with React 19
-- **Styling**: Tailwind CSS v4
-- **UI Components**: shadcn/ui
-- **Icons**: Lucide React
-- **Fonts**: Geist (sans) and Geist Mono
+La plataforma usa:
 
-## 🔄 Development Workflow
+- **Framework**: Next.js 16 con React 19
+- **Estilos**: Tailwind CSS v4
+- **Componentes UI**: shadcn/ui
+- **Iconos**: Lucide React
+- **Fuente**: Inter
 
-1. Make changes to your local branch
-2. Test locally with `npm run dev`
-3. Build and check for errors: `npm run build`
-4. Create a Pull Request with:
-   - Clear title describing changes
-   - Description of what was added/modified
-   - Screenshots if UI changes were made
+## 🔧 Comandos Disponibles
 
-## 📝 Validation Rules
+```bash
+npm run dev       # Inicia el servidor de desarrollo
+npm run build     # Construye la aplicación para producción
+npm run start     # Inicia el servidor de producción
+npm run lint      # Ejecuta el linter
+```
 
-When adding content, ensure:
+## 🐛 Reportar Problemas
 
-- **Communities**: All fields filled, contact info valid, unique ID
-- **Events**: Date must be in the future, time format HH:MM, location specified
-- **Sponsors**: Valid type (budget/space), website valid URL, logo text concise
+Si encuentras un bug o tienes una sugerencia:
 
-## 🤖 Automation
+1. Revisa los [Issues existentes](https://github.com/yourusername/mexico-tech-community-website/issues)
+2. Si no existe, crea un nuevo Issue con:
+   - Título descriptivo
+   - Descripción detallada del problema o sugerencia
+   - Pasos para reproducir (si es un bug)
+   - Capturas de pantalla (si aplica)
 
-The platform includes:
-- Automated deployment to Vercel
-- PR preview environments
-- Build checks for TypeScript and Next.js
+## 💡 Ideas y Sugerencias
 
-## 📄 License
+¿Tienes ideas para mejorar la plataforma? ¡Nos encantaría escucharlas!
 
-This project is open source. See LICENSE file for details.
+- Abre un [GitHub Discussion](https://github.com/yourusername/mexico-tech-community-website/discussions)
+- Crea un Issue con la etiqueta `enhancement`
+- Contacta a los organizadores
 
-## 💬 Community
+## 📝 Código de Conducta
 
-- **GitHub Discussions**: Share ideas and feedback
-- **Issues**: Report bugs and request features
-- **Pull Requests**: Submit your contributions
+Esta comunidad sigue un código de conducta para asegurar un ambiente respetuoso y acogedor para todos:
 
-## 🙋 Support
+- Sé respetuoso y profesional
+- Valora la diversidad de opiniones
+- Acepta la crítica constructiva
+- Enfócate en lo mejor para la comunidad
+- Muestra empatía hacia otros miembros
 
-For questions or issues:
-1. Check existing GitHub issues
-2. Create a new issue with details
-3. Contact: sponsors@mtytech.community
+## 🙋 Soporte
+
+¿Necesitas ayuda?
+
+1. Revisa esta documentación
+2. Busca en los [Issues existentes](https://github.com/yourusername/mexico-tech-community-website/issues)
+3. Crea un nuevo Issue si no encuentras respuesta
+4. Únete a las discusiones de la comunidad
+
+## 🎯 Roadmap
+
+Próximas funcionalidades planeadas:
+
+- [ ] Sistema de autenticación para organizadores
+- [ ] Filtros avanzados por tecnología
+- [ ] Notificaciones de eventos
+- [ ] Integración con calendarios (Google, Apple)
+- [ ] Sistema de RSVPs para eventos
+- [ ] Mapa interactivo de comunidades
+
+## 📄 Licencia
+
+Este proyecto es de código abierto y está disponible bajo una licencia permisiva.
+
+## 🤝 Agradecimientos
+
+Gracias a todas las comunidades tecnológicas de Monterrey que hacen posible este proyecto:
+
+- Google Developer Group Monterrey
+- Supabase Monterrey
+- Cursor Community Monterrey
+- Y muchas más por venir...
+
+## 📞 Contacto
+
+- **GitHub**: [mexico-tech-community-website](https://github.com/yourusername/mexico-tech-community-website)
+- **Issues**: [Reportar un problema](https://github.com/yourusername/mexico-tech-community-website/issues)
+- **Discussions**: [Unirse a la conversación](https://github.com/yourusername/mexico-tech-community-website/discussions)
 
 ---
 
-**Built with ❤️ by the MTY Tech Community**
+**Hecho con ❤️ por y para la Comunidad Tecnológica de México**
+
+**#MxTech #OpenSource #TechCommunity**
