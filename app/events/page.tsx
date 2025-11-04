@@ -1,0 +1,178 @@
+"use client"
+
+import { useState, useMemo } from "react"
+import { Calendar, MapPin, Users, Filter } from "lucide-react"
+import { eventsData } from "@/data/events"
+import { EventsCalendar } from "@/components/events-calendar"
+
+export default function EventsPage() {
+  const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar")
+  const [selectedCommunity, setSelectedCommunity] = useState("All")
+
+  const communities = useMemo(() => {
+    const unique = new Set(eventsData.map((e) => e.community))
+    return ["All", ...Array.from(unique).sort()]
+  }, [])
+
+  const upcomingEvents = useMemo(() => {
+    return eventsData
+      .filter((e) => new Date(e.date) > new Date())
+      .filter((e) => selectedCommunity === "All" || e.community === selectedCommunity)
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+  }, [selectedCommunity])
+
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10">
+      <section className="container mx-auto px-4 py-16">
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Events Calendar</h1>
+          <p className="text-lg text-foreground/70">Join us at tech events, workshops, and meetups in Monterrey</p>
+        </div>
+
+        {/* Controls */}
+        <div className="flex flex-col md:flex-row gap-4 mb-8 items-center justify-between flex-wrap">
+          <div className="flex gap-2">
+            <button
+              onClick={() => setViewMode("calendar")}
+              className={`
+                px-4 py-2 rounded-lg font-semibold transition-all
+                ${
+                  viewMode === "calendar"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card border border-border hover:border-primary/50"
+                }
+              `}
+            >
+              <Calendar className="inline mr-2" size={18} />
+              Calendar
+            </button>
+            <button
+              onClick={() => setViewMode("list")}
+              className={`
+                px-4 py-2 rounded-lg font-semibold transition-all
+                ${
+                  viewMode === "list"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card border border-border hover:border-primary/50"
+                }
+              `}
+            >
+              <Filter className="inline mr-2" size={18} />
+              List
+            </button>
+          </div>
+
+          {/* Community Filter */}
+          <select
+            value={selectedCommunity}
+            onChange={(e) => setSelectedCommunity(e.target.value)}
+            className="px-4 py-2 bg-card border border-border rounded-lg text-foreground hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            {communities.map((community) => (
+              <option key={community} value={community}>
+                {community}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Events */}
+        {upcomingEvents.length === 0 ? (
+          <div className="text-center py-12 bg-card border border-border rounded-lg">
+            <Calendar size={48} className="mx-auto text-muted-foreground mb-4" />
+            <p className="text-foreground/70 mb-4">No upcoming events yet. Check back soon!</p>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition-all"
+            >
+              Submit an Event
+            </a>
+          </div>
+        ) : viewMode === "calendar" ? (
+          <EventsCalendar events={upcomingEvents} />
+        ) : (
+          <div className="space-y-4">
+            {upcomingEvents.map((event) => (
+              <EventCardList key={event.id} event={event} />
+            ))}
+          </div>
+        )}
+
+        {/* CTA Section */}
+        {upcomingEvents.length > 0 && (
+          <div className="mt-16 bg-card border border-primary/20 rounded-lg p-8 text-center">
+            <h2 className="text-2xl font-bold mb-4">Have an Event to Share?</h2>
+            <p className="text-foreground/70 mb-6">
+              Add your community event by creating a PR in the events data file on GitHub.
+            </p>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition-all"
+            >
+              Add Event
+            </a>
+          </div>
+        )}
+      </section>
+    </main>
+  )
+}
+
+function EventCardList({ event }: { event: (typeof eventsData)[0] }) {
+  const eventDate = new Date(event.date)
+  const monthDay = eventDate.toLocaleDateString("en-US", { month: "short", day: "numeric" })
+
+  return (
+    <div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-lg transition-all">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex items-center justify-center bg-primary/20 rounded-lg p-4 md:w-24 md:h-24 flex-shrink-0">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-primary">{eventDate.getDate()}</div>
+            <div className="text-xs text-primary/70">{eventDate.toLocaleDateString("en-US", { month: "short" })}</div>
+          </div>
+        </div>
+
+        <div className="flex-grow">
+          <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+          <p className="text-foreground/70 mb-4">{event.description}</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div className="flex items-center gap-2 text-foreground/70">
+              <Calendar size={16} className="text-primary" />
+              <span>
+                {monthDay} at {event.time}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-foreground/70">
+              <MapPin size={16} className="text-primary" />
+              <span>{event.location}</span>
+            </div>
+            <div className="flex items-center gap-2 text-foreground/70">
+              <Users size={16} className="text-primary" />
+              <span>{event.community}</span>
+            </div>
+            <div className="flex items-center gap-2 text-foreground/70">
+              <Users size={16} className="text-primary" />
+              <span>{event.attendees} attending</span>
+            </div>
+          </div>
+
+          {event.link && (
+            <a
+              href={event.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-4 py-2 bg-primary/10 text-primary hover:bg-primary/20 rounded-lg font-semibold transition-colors"
+            >
+              Learn More
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
