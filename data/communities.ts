@@ -50,6 +50,18 @@ export const communitiesData: Community[] = [
     city: "Guadalajara",
     contacts: [
       {
+        name: "Elisa Elias",
+        role: "Organizer",
+        roleEs: "Organizadora",
+        bio: "Security Consultant",
+        bioEs: "Consultora de Seguridad",
+        socials: {
+          website: "https://elisaelias.com/",
+          linkedin: "https://www.linkedin.com/in/elisa-elias-0a7829268",
+          instagram: "https://instagram.com/elisa_elias__",
+        },
+      },
+      {
         name: "Uziel Cococlan",
         role: "Organizer",
         roleEs: "Organizador",
@@ -57,9 +69,9 @@ export const communitiesData: Community[] = [
         bioEs:
           "Ingeniero de software",
         socials: {
+          website: "https://ushieru.com",
           linkedin: "https://www.linkedin.com/in/uzielcocolan/",
           github: "https://github.com/ushieru",
-          website: "https://ushieru.com",
         },
       },
     ],
