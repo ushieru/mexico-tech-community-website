@@ -117,55 +117,18 @@ export default async function CommunityDetailPage({
 
               {/* Social Links */}
               <div className="space-y-2">
-                {contact.socials.email && (
-                  <a
-                    href={`mailto:${contact.socials.email}`}
-                    className="flex items-center gap-2 text-primary hover:underline text-sm"
-                  >
-                    <Mail size={16} />
-                    {contact.socials.email}
-                  </a>
-                )}
-                {contact.socials.twitter && (
-                  <a
-                    href={contact.socials.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-primary hover:underline text-sm"
-                  >
-                    Twitter: {contact.socials.twitter}
-                  </a>
-                )}
-                {contact.socials.linkedin && (
-                  <a
-                    href={contact.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-primary hover:underline text-sm"
-                  >
-                    LinkedIn: {contact.socials.linkedin}
-                  </a>
-                )}
-                {contact.socials.github && (
-                  <a
-                    href={contact.socials.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-primary hover:underline text-sm"
-                  >
-                    GitHub: {contact.socials.github}
-                  </a>
-                )}
-                {contact.socials.website && (
-                  <a
-                    href={contact.socials.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-primary hover:underline text-sm"
-                  >
-                    Website: {contact.socials.website}
-                  </a>
-                )}
+                {
+                  Object.entries(contact.socials).map(([key, value]) =>
+                    <a
+                      href={key == 'email' ? `mailto:${value}` : value}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-primary hover:underline text-sm"
+                    >
+                      <span className="capitalize">{key}</span>: {value}
+                    </a>
+                  )
+                }
               </div>
             </div>
           ))}

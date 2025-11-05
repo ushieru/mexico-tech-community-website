@@ -29,11 +29,7 @@ export interface Contact {
   bio?: string;
   bioEs?: string;
   socials: {
-    twitter?: string;
-    linkedin?: string;
-    github?: string;
-    website?: string;
-    email?: string;
+    [key: string]: string,
   };
 }
 
