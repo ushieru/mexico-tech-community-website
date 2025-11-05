@@ -32,6 +32,44 @@ export interface Contact {
 
 export const communitiesData: Community[] = [
   {
+    id: "gdg-gdl",
+    name: "GDG Guadalajara",
+    nameEs: "GDG Guadalajara",
+    description:
+      "Official Google Developer Group in Guadalajara. A community of developers, designers, and innovators sharing knowledge on web, mobile, AI, and cloud technologies.",
+    descriptionEs:
+      "Grupo oficial de Desarrolladores de Google en Guadalajara. Una comunidad de desarrolladores, diseñadores e innovadores que comparten conocimiento sobre tecnologías web, móviles, de IA y la nube.",
+    focus: ["Web", "Mobile", "AI/ML", "Cloud", "Community", "Career Development", "Firebase", "Gemini", "Networking"],
+    focusEs: ["Web", "Desarrollo Móvil", "IA/ML", "Nube", "Comunidad", "Desarrollo de Carreras", "Firebase", "Gemini", "Networking"],
+    members: 550,
+    category: "General Tech",
+    meetups: 5,
+    image: "/gdg-guadalajara.png",
+    state: "Jalisco",
+    stateEs: "Jalisco",
+    city: "Guadalajara",
+    contacts: [
+      {
+        name: "Uziel Cococlan",
+        role: "Organizer",
+        roleEs: "Organizador",
+        bio: "Software Engineer",
+        bioEs:
+          "Ingeniero de software",
+        socials: {
+          linkedin: "https://www.linkedin.com/in/uzielcocolan/",
+          github: "https://github.com/ushieru",
+          website: "https://ushieru.com",
+        },
+      },
+    ],
+    links: {
+      website: "https://gdgguadalajara.com/",
+      instagram: "https://www.instagram.com/gdg_guadalajara/",
+      linkedin: "https://www.linkedin.com/company/gdgguadalajara",
+    },
+  },
+  {
     id: "gdg-mty",
     name: "GDG Monterrey",
     nameEs: "GDG Monterrey",
