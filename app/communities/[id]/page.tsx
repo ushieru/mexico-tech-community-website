@@ -120,6 +120,7 @@ export default async function CommunityDetailPage({
                 {
                   Object.entries(contact.socials).map(([key, value]) =>
                     <a
+                      key={key}
                       href={key == 'email' ? `mailto:${value}` : value}
                       target="_blank"
                       rel="noopener noreferrer"
